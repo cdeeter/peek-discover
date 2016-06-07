@@ -2,8 +2,8 @@
 <html>
   <head>
     <meta charset="UTF-8">
-    <title>Peek | Discover: Adventures In Your Own Backyard!</title>
-    <link rel="stylesheet" href="css/style.css" type="text/css">
+    <title>PeekDiscover: Adventures In Your Own Backyard!</title>
+    <link rel="stylesheet" href="css/index.css" type="text/css">
     <link rel="stylesheet" href="css/bootstrap.css" type="text/css">
     <link rel="stylesheet" href="css/bootstrap-theme.css" type="text/css">
     <link href='https://fonts.googleapis.com/css?family=Lato' rel='stylesheet' type='text/css'>
@@ -11,17 +11,17 @@
   <body id='home-page'>
     <img src='assets/Peek_Discover_Logo.png' alt='Peek' id='peek-discover-logo'>
     <div class='video-background'>
-      <iframe frameBorder="0" height="100%" width="100%" class='video-iframe'
-        src="https://youtube.com/embed/1eZ6kDJVtds?autoplay=1&loop=1controls=0&showinfo=0&autohide=1&playsinline=1" allowFullScreen>
+      <iframe frameBorder="0" height="100%" width="100%" volume="0" class='video-iframe'
+        src="https://youtube.com/embed/1eZ6kDJVtds?autoplay=1&loop=1controls=0&showinfo=0&autohide=1" allowFullScreen>
       </iframe>
     </div>
-    <div class='section intro'>
+    <div class='intro'>
       <div class='text-center'>
         <div class='welcome-text'>
           <h1>Explore your city with a fresh adventure each month</h1>
           <div id='action-links'>
             <a href="#" id='signup-link'>Sign Up</a> |
-            <a href="#" id='login-link'>Sign In</a>
+            <a href="#" id='login-link'>Log In</a>
           </div>
           <div id='signup-form'>
             <form>
@@ -46,28 +46,99 @@
       </div>
     </div>
     <div class='section white-bg how-it-works text-center'>
-      <h2 id='about'>How It Works</h2>
+      <h2 id='about' class='main-section-header'>How It Works</h2>
       <div class='divider'></div>
       <div class='row'>
         <div class='col-sm-4'>
           <div class='step'>Step 1</div>
           <h1><i class='glyphicon glyphicon-user'></i></h1>
-          <h3 class='section-heading'>Create Your Profile</h3>
-          Select the categories you're interested and give us your email so we can make sure to send you activities you're interested in!
+          <h3 class='column-heading'>Create your profile</h3>
+          Set up activity preferences and account information, get prepped for new adventures, and more.
         </div>
         <div class='col-sm-4'>
           <div class='step'>Step 2</div>
           <h1><i class='glyphicon glyphicon-envelope'></i></h1>
-          <h3 class='section-heading'>Receive Adventure Email</h3>
-          Receive an email one week before the activity starts and confirm your attendance!
+          <h3 class='column-heading'>Receive adventure emails</h3>
+          Each month you will receive an email offering a new activity to try based on your interests. Your spot at the activity is already reserved!
         </div>
         <div class='col-sm-4'>
           <div class='step'>Step 3</div>
           <h1><i class='glyphicon glyphicon-globe'></i></h1>
-          <h3 class='section-heading'>Go 'Splorin!</h3>
-          Have an amazing time at a great activity!
+          <h3 class='column-heading'>Explore your city!</h3>
+          We make it easy for you to find and experience the hidden gems of your city!
         </div>
       </div>
+    </div>
+    <div class='section parallax-image-1'></div>
+    <div class='section white-bg memberships text-center'>
+      <h2 class='main-section-header'>Memberships</h2>
+      <div class='divider'></div>
+      <br/>
+      <div class='row membership-tiers'>
+        <div class='col-sm-4'>
+          <div class='membership-price'>
+            <h1>$20.00</h1>
+            per month
+          </div>
+          <h3 class='column-heading'>Adventurer (Standard)</h3>
+          The Adventurer subscription offers fun activities right in your neighborhood such as historic walking tours, bike tours and family-friendy scavenger hunts.
+          <br/><br/>
+          Walking Tours<br/>
+          Other Tours<br/>
+        </div>
+        <div class='col-sm-4'>
+          <div class='membership-price'>
+            <h1>$50.00</h1>
+            per month
+          </div>
+          <h3 class='column-heading'>Explorer (Gold)</h3>
+          Do a variety of activities with our Explorer subscription, including food and cocktail tours, vintage VW bus tours and major city attractions.
+          <br/><br/>
+          Culinary Tours<br/>
+          Other Tours
+        </div>
+        <div class='col-sm-4'>
+          <div class='membership-price'>
+            <h1>$100.00</h1>
+            per month
+          </div>
+          <h3 class='column-heading'>Voyager (Platinum)</h3>
+          With our Voyager subscription, experience thrilling outdoor adventures such as seaplane or hot air balloon tours, luxourious wine country tours, or private sailing charters.
+          <br/><br/>
+          Helicopter Tours<br/>
+          Other Tours
+        </div>
+      </div>
+      <div class='row'>
+        <div class='col-sm-4'>
+          <button class='membership-signup-button button btn btn-primary btn-lg' id='standard-signup'>Sign Up</button>
+        </div>
+        <div class='col-sm-4'>
+          <button class='membership-signup-button button btn btn-primary btn-lg' id='gold-signup'>Sign Up</button>
+        </div>
+        <div class='col-sm-4'>
+          <button class='membership-signup-button button btn btn-primary btn-lg' id='platinum-signup'>Sign Up</button>
+        </div>
+      </div>
+    </div>
+    <div class='section parallax-image-2'></div>
+    <div class='section white-bg why-join text-center'>
+      <h2 id='about' class='main-section-header'>Why Join Us</h2>
+      <div class='divider'></div>
+      <div class='row'>
+        <div class='col-sm-6'>
+          <h3 class='column-heading'>Home is where the adventure is</h3>
+          What's the most fun way to experience your city? Do local activities! From food tours to kayaking to day trips to helicopter tours, we want to bring out your inner adventurer so that you can do the things you love close to home.
+        </div>
+        <div class='col-sm-6'>
+          <h3 class='column-heading'>Experiences build communities</h3>
+          Adventures are fun with friends and a great way to meet new people. With peekDiscover Groups, you can easily invite friends to your activities and meet fellow adventurers sharing your same interests.
+        </div>
+      </div>
+    </div>
+    <div class='footer white-bg'>
+      <img src='assets/people_city_outline.png' class='footer-image' alt='Peek'>
+      <div class='block'></div>
     </div>
     <script src="//ajax.googleapis.com/ajax/libs/jquery/1.7.2/jquery.min.js" type="text/javascript"></script>
     <script src="js/index.js" type="text/javascript"></script>

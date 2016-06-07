@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="UTF-8">
+    <title>Peek | Discover: Adventures In Your Own Backyard!</title>
+    <link rel="stylesheet" href="css/style.css" type="text/css">
+    <link rel="stylesheet" href="css/bootstrap.css" type="text/css">
+    <link rel="stylesheet" href="css/bootstrap-theme.css" type="text/css">
+    <link href='https://fonts.googleapis.com/css?family=Lato' rel='stylesheet' type='text/css'>
+  </head>
+  <body id="signup-page">
+    <img src='assets/peek_logo.png' alt='Peek' id='peek-sticky-logo'>
+    <div class='container'>
+      <form method='POST' action='/email'>
+        <div class='section enter-info'>
+          <h1>Sign up!</h1>
+          <div class='input-group'>
+            <h3>Enter Personal Information</h3>
+            <label>First Name <input type='text' class='form-control' name='firstName'></label><br/>
+            <label>Last Name <input type='text' class='form-control' name='lastName'></label><br/>
+            <label>Email <input type='email' class='form-control' name='email'></label><br/>
+            <label>Zip Code <input type='text' class='form-control' name='zip'></label><br/><br/>
+          </div>
+        </div>
+        <br/>
+        <div class='divider'></div>
+        <br/>
+        <div class='section select-categories'>
+          <h3>Select Categories</h3>
+          <div class='categories'>
+            <div class='row'>
+              <div class='col-sm-4'>
+                <h4>Amusement Parks & Games</h4>
+              </div>
+              <div class='col-sm-4'>
+                <h4>Attraction Tickets & Passes</h4>
+              </div>
+              <div class='col-sm-4'>
+                <h4>Cruises, Sailing & Boat Tours</h4>
+              </div>
+            </div>
+            <div class='row'>
+              <div class='col-sm-4'>
+                <h4>Cultural & Theme Tours</h4>
+              </div>
+              <div class='col-sm-4'>
+                <h4>Fashion & Shopping</h4>
+              </div>
+              <div class='col-sm-4'>
+                <h4>Food, Wine & Nightlife</h4>
+              </div>
+            </div>
+          </div>
+        </div>
+        <br/>
+        <div class='divider'></div>
+        <br/>
+        <div class='section activity-tiers'>
+          <h3>Select Package</h3>
+          <div class='row text-center'>
+            <div class='col-sm-4'>
+              <h4>Standard - $25/month</h4>
+              Receive an activity per month that's valued around a $25 price<br/>
+              Sample activities could be: walking tours, food tours
+            </div>
+            <div class='col-sm-4'>
+              <h4>Gold - $50/month</h4>
+              Receive an activity per month that's valued around a $50 price<br/>
+              Sample activities could be:
+            </div>
+            <div class='col-sm-4'>
+              <h4>Platinum - $100/month</h4>
+              Receive an activity per month that's valued around a $100 price<br/>
+              Sample activities could be:
+            </div>
+          </div>
+        </div>
+        <br/>
+        <div class='divider'></div>
+        <br/>
+        <div class='section cc-info'>
+          <h3>Enter Credit Card Information</h3>
+          <label>Name on Card <input type='text' class='form-control' name='cardName'></label><br/>
+          <label>Card Number<input type='text' class='form-control' name='cardNum'></label><br/>
+          <label>Expiration Date <input type='text' class='form-control' placeholder='MM/YY' name='expDate'></label><br/>
+          <label>CVV <input type='text' class='form-control' name='cvv'></label><br/>
+        <button class='button btn-lg btn btn-primary'>Go!</button>
+      </form>
+    </div>
+
+    <script src="//ajax.googleapis.com/ajax/libs/jquery/1.7.2/jquery.min.js" type="text/javascript"></script>
+  </body>
+</html>

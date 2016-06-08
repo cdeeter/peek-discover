@@ -7,7 +7,7 @@
 }
 
 .divider{
-  border-bottom: 1px solid #cacaca;
+  border-bottom: 0.5px solid #cacaca;
   width: 90%;
   display: block;
   margin: auto;
@@ -36,7 +36,7 @@
 }
 
 .section{
-  padding: 25px 30px 50px 30px;
+  padding: 25px 30px 70px 30px;
 }
 
 #action-links, #action-links a{

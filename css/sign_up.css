@@ -84,6 +84,10 @@ select.form-control{
   display: none;
 }
 
+#preferences-container .empty-checkbox, #preferences-container .checked-checkbox{
+  margin-right: 10px;
+}
+
 .check{
   height: 20px;
   width: 20px;

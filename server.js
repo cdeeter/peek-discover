@@ -15,6 +15,7 @@ app.engine('html', swig.renderFile);
 
 app.set('view engine', 'html');
 app.set('views', __dirname + '/views');
+app.set('port', (process.env.PORT || 8080));
 
 app.post('/email', function (req, res) {
   var directConfig = 'direct:?name=Gmail';
@@ -42,5 +43,6 @@ app.post('/email', function (req, res) {
   res.status('200').send('Success!');
 });
 
-
-app.listen(8080);
+app.listen(app.get('port'), function() {
+  console.log('Node app is running on port', app.get('port'));
+});

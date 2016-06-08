@@ -28,7 +28,7 @@ div{
 }
 
 #personal-info-container{
-  height: 180px;
+  min-height: 180px;
   background-color: #f7f7f7;
 }
 
@@ -42,7 +42,7 @@ div{
   padding: 7px 15px 7px 15px;
   width: 100%;
   border: 1px solid #c3c0c0;
-  background-color: #f7f7f7;
+  background-color: transparent;
   border-radius: 4px;
   font-size: 20px;
   color: #9b9b9b;
@@ -94,17 +94,4 @@ div{
 
 #card-info-container{
   background-color: #f7f7f7;
-}
-
-
-
-/* REMOVE!!! */
-#platinum .empty-checkbox, #preferences-container > .row > .col-sm-4:first-child .empty-checkbox{
-  display: none;
-}
-#platinum .checked-checkbox {
-  display: block;
-}
-#preferences-container > .row > .col-sm-4:first-child .checked-checkbox{
-  display: inline-block;
 }

@@ -69,6 +69,7 @@
               Water Parks
             </div>
           </div>
+          <div class='visible-xs'><br/><br/></div>
           <div class='col-sm-4'>
             <div class='column-heading'>Attraction Tickets & Passes</div>
             <div class='category'>
@@ -107,6 +108,7 @@
               Zoo Tickets & Passes
             </div>
           </div>
+          <div class='visible-xs'><br/><br/></div>
           <div class='col-sm-4'>
             <div class='column-heading'>Cruises, Sailing & Boat Tours</div>
             <div class='category'>
@@ -200,6 +202,7 @@
               Studio & Movie Tours
             </div>
           </div>
+          <div class='visible-xs'><br/><br/></div>
           <div class='col-sm-4'>
             <div class='column-heading'>Fashion & Shopping</div>
             <div class='category'>
@@ -224,6 +227,7 @@
               Shopping Tours
             </div>
           </div>
+          <div class='visible-xs'><br/><br/></div>
           <div class='col-sm-4'>
             <div class='column-heading'>Food, Wine & Nighlife</div>
             <div class='category'>
@@ -277,6 +281,7 @@
             </div>
           </div>
         </div>
+        <input type='hidden' id='selected-categories' name='selectedCategories'>
       </div>
       <div class='divider'></div>
       <div id='memberships' class='section'>
@@ -284,7 +289,7 @@
         <div class='row membership-tiers text-center'>
           <div class='col-sm-4'>
             <div class='membership-option-container' id='standard'>
-              <div class='membership-checkbox'>
+              <div class='membership'>
                 <div class='empty-checkbox'></div>
                 <div class='checked-checkbox'>
                   <img src='assets/checkmark.png' class='check' alt='Checked'>
@@ -294,16 +299,17 @@
                 <h1>$20.00</h1>
                 per month
               </div>
-              <h3 class='column-heading'>Adventurer (Standard)</h3>
+              <h3 class='column-heading'>Adventurer (<span class='membership-type'>Standard</span>)</h3>
               The Adventurer subscription offers fun activities right in your neighborhood such as historic walking tours, bike tours and family-friendy scavenger hunts.
               <br/><br/>
               Walking Tours<br/>
               Other Tours<br/>
             </div>
           </div>
+          <div class='visible-xs'><div class='divider'></div><br/></div>
           <div class='col-sm-4'>
             <div class='membership-option-container' id='gold'>
-              <div class='membership-checkbox'>
+              <div class='membership'>
                 <div class='empty-checkbox'></div>
                 <div class='checked-checkbox'>
                   <img src='assets/checkmark.png' class='check' alt='Checked'>
@@ -313,16 +319,17 @@
                 <h1>$50.00</h1>
                 per month
               </div>
-              <h3 class='column-heading'>Explorer (Gold)</h3>
+              <h3 class='column-heading'>Explorer (<span class='membership-type'>Gold</span>)</h3>
               Do a variety of activities with our Explorer subscription, including food and cocktail tours, vintage VW bus tours and major city attractions.
               <br/><br/>
               Culinary Tours<br/>
               Other Tours
             </div>
           </div>
+          <div class='visible-xs'><div class='divider'></div><br/></div>
           <div class='col-sm-4'>
-            <div class='membership-option-container selected-membership' id='platinum'>
-              <div class='membership-checkbox'>
+            <div class='membership-option-container' id='platinum'>
+              <div class='membership'>
                 <div class='empty-checkbox'></div>
                 <div class='checked-checkbox'>
                   <img src='assets/checkmark.png' class='check' alt='Checked'>
@@ -332,7 +339,7 @@
                 <h1>$100.00</h1>
                 per month
               </div>
-              <h3 class='column-heading'>Voyager (Platinum)</h3>
+              <h3 class='column-heading'>Voyager (<span class='membership-type'>Platinum</span>)</h3>
               With our Voyager subscription, experience thrilling outdoor adventures such as seaplane or hot air balloon tours, luxourious wine country tours, or private sailing charters.
               <br/><br/>
               Helicopter Tours<br/>
@@ -340,6 +347,7 @@
             </div>
           </div>
         </div>
+        <input type='hidden' id='selected-membership-plan' name='selectedMembership'>
       </div>
       <div id='card-info-container' class='section'>
         <h3 class='section-header'>Enter Credit Card Information</h3>

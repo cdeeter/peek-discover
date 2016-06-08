@@ -1,8 +1,8 @@
-var homeController = (function(){
+var homeController = (function (){
   var selectors = {};
 
   return {
-    init: function() {
+    init: function () {
       selectors.homePage         = $("#home-page");
       selectors.signupEmailField = $("#signup-email");
       selectors.loginEmailField  = $("#login-email");
@@ -17,7 +17,7 @@ var homeController = (function(){
       selectors.switchToLogin    = $("#or-login-link");
       this.bindUIActions();
     },
-    bindUIActions: function() {
+    bindUIActions: function () {
       selectors.signupButton.click(function(e) {
         var email = selectors.signupEmailField.val();
 
@@ -25,7 +25,7 @@ var homeController = (function(){
         this.signUp(email);
       }.bind(this));
 
-      selectors.loginButton.click(function(e) {
+      selectors.loginButton.click(function (e) {
         var email = selectors.loginEmailField.val();
 
         e.preventDefault();
@@ -48,10 +48,10 @@ var homeController = (function(){
         this.showSection(selectors.loginForm, selectors.signupForm);
       }.bind(this));
     },
-    hideSection: function(selector) {
+    hideSection: function (selector) {
       selector.hide();
     },
-    showSection: function(sectionToShow, sectionToHide) {
+    showSection: function (sectionToShow, sectionToHide) {
       var findShowSelector = selectors.homePage.find(sectionToShow);
       var findHideSelector = selectors.homePage.find(sectionToHide);
 
@@ -62,7 +62,7 @@ var homeController = (function(){
       window.sessionStorage.setItem('peekDiscoverEmail', email);
       window.location.assign('/sign_up.html');
     },
-    logIn: function(email) {
+    logIn: function (email) {
       window.sessionStorage.setItem('peekLoginEmail', email);
       window.location.assign('/profile.html');
     },

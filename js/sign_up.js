@@ -38,10 +38,7 @@ var signupController = (function (){
       });
 
       selectors.selectedMembershipCheckbox.click(function () {
-        var selectedMembership = $(this).closest('.membership-option-container').find('.membership-type')
-                                    .text().toLowerCase();
-
-        signupController.setMembership(selectedMembership, $(this));
+        signupController.unsetMembership();
       });
     },
     setSignupEmail: function () {
@@ -80,15 +77,13 @@ var signupController = (function (){
       }
     },
     setMembership: function (membershipType, context) {
-      // remove old selected membership class from old membership and add selected membership class to new membership
-      selectors.membershipsSection.find('.membership-option-container').removeClass('selected-membership');
+
+      this.unsetMembership();
+
       context.closest('.membership-option-container').addClass('selected-membership');
-
-      // uncheck old checkbox and check the new one
-      selectors.membershipsSection.find('.checked-checkbox').hide().prev('.empty-checkbox').show();
       context.hide().closest('.membership-option-container').find('.checked-checkbox').show();
+      selectors.selectedMembershipList.val(membershipType);
 
-      // hide categories irrelevant to membership
       selectors.categoryNames.each(function () {
         if (!$(this).hasClass(membershipType)) {
           $(this).closest('.category').hide();
@@ -96,9 +91,10 @@ var signupController = (function (){
           $(this).closest('.category').show();
         }
       });
-
-      // save membership type
-      selectors.selectedMembershipList.val(membershipType);
+    },
+    unsetMembership: function () {
+      selectors.membershipsSection.find('.membership-option-container').removeClass('selected-membership');
+      selectors.membershipsSection.find('.checked-checkbox').hide().prev('.empty-checkbox').show();
     },
   }
 })();

@@ -2,92 +2,382 @@
 <html>
   <head>
     <meta charset="UTF-8">
-    <title>Peek | Discover: Adventures In Your Own Backyard!</title>
+    <title>PeekDiscover: Adventures In Your Own Backyard!</title>
     <link rel="stylesheet" href="css/style.css" type="text/css">
+    <link rel="stylesheet" href="css/sign_up.css" type="text/css">
     <link rel="stylesheet" href="css/bootstrap.css" type="text/css">
     <link rel="stylesheet" href="css/bootstrap-theme.css" type="text/css">
     <link href='https://fonts.googleapis.com/css?family=Lato' rel='stylesheet' type='text/css'>
   </head>
   <body id="signup-page">
-    <img src='assets/peek_logo.png' alt='Peek' id='peek-sticky-logo'>
-    <div class='container'>
-      <form method='POST' action='/email'>
-        <div class='section enter-info'>
-          <h1>Sign up!</h1>
-          <div class='input-group'>
-            <h3>Enter Personal Information</h3>
-            <label>First Name <input type='text' class='form-control' name='firstName'></label><br/>
-            <label>Last Name <input type='text' class='form-control' name='lastName'></label><br/>
-            <label>Email <input type='email' class='form-control' name='email'></label><br/>
-            <label>Zip Code <input type='text' class='form-control' name='zip'></label><br/><br/>
+    <form method='POST' action='/signup_email'>
+      <div id='logo-container' class='section'>
+        <img src='assets/Peek_Discover_Logo.png' alt='Peek' id='peek-discover-logo'>
+      </div>
+      <div id='personal-info-container' class='section'>
+        <h3 class='section-header'>Enter Personal Information</h3>
+        <div class='row'>
+          <div class='col-sm-3'>
+            <label>First Name</label><br/>
+            <input type='text' name='firstName' id='first-name' class='text-input'>
+          </div>
+          <div class='col-sm-3'>
+            <label>Last Name</label><br/>
+            <input type='text' name='lastName' id='last-name' class='text-input'>
+          </div>
+          <div class='col-sm-3'>
+            <label>Email</label><br/>
+            <input type='text' name='email' id='email' class='text-input'>
+          </div>
+          <div class='col-sm-3'>
+            <label>Zip Code</label><br/>
+            <input type='text' name='zip' id='zip' class='text-input'>
           </div>
         </div>
-        <br/>
-        <div class='divider'></div>
-        <br/>
-        <div class='section select-categories'>
-          <h3>Select Categories</h3>
-          <div class='categories'>
-            <div class='row'>
-              <div class='col-sm-4'>
-                <h4>Amusement Parks & Games</h4>
+      </div>
+      <div id='preferences-container' class='section'>
+        <h3 class='section-header'>Your Preferences</h3>
+        <div class='row'>
+          <div class='col-sm-4'>
+            <div class='column-heading'>Amusement Parks & Games</div>
+            <div class='category'>
+              <div class='empty-checkbox'></div>
+              <div class='checked-checkbox'>
+                <img src='assets/checkmark.png' class='check' alt='Checked'>
               </div>
-              <div class='col-sm-4'>
-                <h4>Attraction Tickets & Passes</h4>
-              </div>
-              <div class='col-sm-4'>
-                <h4>Cruises, Sailing & Boat Tours</h4>
-              </div>
+              Escape Games
             </div>
-            <div class='row'>
-              <div class='col-sm-4'>
-                <h4>Cultural & Theme Tours</h4>
+            <div class='category'>
+              <div class='empty-checkbox'></div>
+              <div class='checked-checkbox'>
+                <img src='assets/checkmark.png' class='check' alt='Checked'>
               </div>
-              <div class='col-sm-4'>
-                <h4>Fashion & Shopping</h4>
+              Scavenger Hunts
+            </div>
+            <div class='category'>
+              <div class='empty-checkbox'></div>
+              <div class='checked-checkbox'>
+                <img src='assets/checkmark.png' class='check' alt='Checked'>
               </div>
-              <div class='col-sm-4'>
-                <h4>Food, Wine & Nightlife</h4>
+              Theme Parks
+            </div>
+            <div class='category'>
+              <div class='empty-checkbox'></div>
+              <div class='checked-checkbox'>
+                <img src='assets/checkmark.png' class='check' alt='Checked'>
               </div>
+              Water Parks
+            </div>
+          </div>
+          <div class='col-sm-4'>
+            <div class='column-heading'>Attraction Tickets & Passes</div>
+            <div class='category'>
+              <div class='empty-checkbox'></div>
+              <div class='checked-checkbox'>
+                <img src='assets/checkmark.png' class='check' alt='Checked'>
+              </div>
+              Aquarium Tickets & Passes
+            </div>
+            <div class='category'>
+              <div class='empty-checkbox'></div>
+              <div class='checked-checkbox'>
+                <img src='assets/checkmark.png' class='check' alt='Checked'>
+              </div>
+              Historical Sites & Monuments
+            </div>
+            <div class='category'>
+              <div class='empty-checkbox'></div>
+              <div class='checked-checkbox'>
+                <img src='assets/checkmark.png' class='check' alt='Checked'>
+              </div>
+              Museum Tickets & Tours
+            </div>
+            <div class='category'>
+              <div class='empty-checkbox'></div>
+              <div class='checked-checkbox'>
+                <img src='assets/checkmark.png' class='check' alt='Checked'>
+              </div>
+              Planetarium Tickets & Tours
+            </div>
+            <div class='category'>
+              <div class='empty-checkbox'></div>
+              <div class='checked-checkbox'>
+                <img src='assets/checkmark.png' class='check' alt='Checked'>
+              </div>
+              Zoo Tickets & Passes
+            </div>
+          </div>
+          <div class='col-sm-4'>
+            <div class='column-heading'>Cruises, Sailing & Boat Tours</div>
+            <div class='category'>
+              <div class='empty-checkbox'></div>
+              <div class='checked-checkbox'>
+                <img src='assets/checkmark.png' class='check' alt='Checked'>
+              </div>
+              Boat Rentals & Charters
+            </div>
+            <div class='category'>
+              <div class='empty-checkbox'></div>
+              <div class='checked-checkbox'>
+                <img src='assets/checkmark.png' class='check' alt='Checked'>
+              </div>
+              Boat Tours & Cruises
+            </div>
+            <div class='category'>
+              <div class='empty-checkbox'></div>
+              <div class='checked-checkbox'>
+                <img src='assets/checkmark.png' class='check' alt='Checked'>
+              </div>
+              Fishing Charters & Trips
+            </div>
+            <div class='category'>
+              <div class='empty-checkbox'></div>
+              <div class='checked-checkbox'>
+                <img src='assets/checkmark.png' class='check' alt='Checked'>
+              </div>
+              Sailing
+            </div>
+            <div class='category'>
+              <div class='empty-checkbox'></div>
+              <div class='checked-checkbox'>
+                <img src='assets/checkmark.png' class='check' alt='Checked'>
+              </div>
+              Whale Watching
             </div>
           </div>
         </div>
-        <br/>
-        <div class='divider'></div>
-        <br/>
-        <div class='section activity-tiers'>
-          <h3>Select Package</h3>
-          <div class='row text-center'>
-            <div class='col-sm-4'>
-              <h4>Standard - $25/month</h4>
-              Receive an activity per month that's valued around a $25 price<br/>
-              Sample activities could be: walking tours, food tours
+        <br/><br/>
+        <div class='row'>
+          <div class='col-sm-4'>
+            <div class='column-heading'>Cultural & Theme Tours</div>
+            <div class='category'>
+              <div class='empty-checkbox'></div>
+              <div class='checked-checkbox'>
+                <img src='assets/checkmark.png' class='check' alt='Checked'>
+              </div>
+              Art & Street Art Tours
             </div>
-            <div class='col-sm-4'>
-              <h4>Gold - $50/month</h4>
-              Receive an activity per month that's valued around a $50 price<br/>
-              Sample activities could be:
+            <div class='category'>
+              <div class='empty-checkbox'></div>
+              <div class='checked-checkbox'>
+                <img src='assets/checkmark.png' class='check' alt='Checked'>
+              </div>
+              Bands & Music Tours
             </div>
-            <div class='col-sm-4'>
-              <h4>Platinum - $100/month</h4>
-              Receive an activity per month that's valued around a $100 price<br/>
-              Sample activities could be:
+            <div class='category'>
+              <div class='empty-checkbox'></div>
+              <div class='checked-checkbox'>
+                <img src='assets/checkmark.png' class='check' alt='Checked'>
+              </div>
+              Cultural Tours
+            </div>
+            <div class='category'>
+              <div class='empty-checkbox'></div>
+              <div class='checked-checkbox'>
+                <img src='assets/checkmark.png' class='check' alt='Checked'>
+              </div>
+              Ghost Tours
+            </div>
+            <div class='category'>
+              <div class='empty-checkbox'></div>
+              <div class='checked-checkbox'>
+                <img src='assets/checkmark.png' class='check' alt='Checked'>
+              </div>
+              Historical & Heritage Tours
+            </div>
+            <div class='category'>
+              <div class='empty-checkbox'></div>
+              <div class='checked-checkbox'>
+                <img src='assets/checkmark.png' class='check' alt='Checked'>
+              </div>
+              Neighborhood Tours
+            </div>
+            <div class='category'>
+              <div class='empty-checkbox'></div>
+              <div class='checked-checkbox'>
+                <img src='assets/checkmark.png' class='check' alt='Checked'>
+              </div>
+              Studio & Movie Tours
+            </div>
+          </div>
+          <div class='col-sm-4'>
+            <div class='column-heading'>Fashion & Shopping</div>
+            <div class='category'>
+              <div class='empty-checkbox'></div>
+              <div class='checked-checkbox'>
+                <img src='assets/checkmark.png' class='check' alt='Checked'>
+              </div>
+              Fashion Shows & Tours
+            </div>
+            <div class='category'>
+              <div class='empty-checkbox'></div>
+              <div class='checked-checkbox'>
+                <img src='assets/checkmark.png' class='check' alt='Checked'>
+              </div>
+              Flea Markets
+            </div>
+            <div class='category'>
+              <div class='empty-checkbox'></div>
+              <div class='checked-checkbox'>
+                <img src='assets/checkmark.png' class='check' alt='Checked'>
+              </div>
+              Shopping Tours
+            </div>
+          </div>
+          <div class='col-sm-4'>
+            <div class='column-heading'>Food, Wine & Nighlife</div>
+            <div class='category'>
+              <div class='empty-checkbox'></div>
+              <div class='checked-checkbox'>
+                <img src='assets/checkmark.png' class='check' alt='Checked'>
+              </div>
+              Bar & Pub Crawl
+            </div>
+            <div class='category'>
+              <div class='empty-checkbox'></div>
+              <div class='checked-checkbox'>
+                <img src='assets/checkmark.png' class='check' alt='Checked'>
+              </div>
+              Breweries & Beer Tours
+            </div>
+            <div class='category'>
+              <div class='empty-checkbox'></div>
+              <div class='checked-checkbox'>
+                <img src='assets/checkmark.png' class='check' alt='Checked'>
+              </div>
+              Coffee Tasting & Tours
+            </div>
+            <div class='category'>
+              <div class='empty-checkbox'></div>
+              <div class='checked-checkbox'>
+                <img src='assets/checkmark.png' class='check' alt='Checked'>
+              </div>
+              Cooking Classes
+            </div>
+            <div class='category'>
+              <div class='empty-checkbox'></div>
+              <div class='checked-checkbox'>
+                <img src='assets/checkmark.png' class='check' alt='Checked'>
+              </div>
+              Dining Experiences
+            </div>
+            <div class='category'>
+              <div class='empty-checkbox'></div>
+              <div class='checked-checkbox'>
+                <img src='assets/checkmark.png' class='check' alt='Checked'>
+              </div>
+              Food Tours
+            </div>
+            <div class='category'>
+              <div class='empty-checkbox'></div>
+              <div class='checked-checkbox'>
+                <img src='assets/checkmark.png' class='check' alt='Checked'>
+              </div>
+              Nightlife
             </div>
           </div>
         </div>
+      </div>
+      <div class='divider'></div>
+      <div id='memberships' class='section'>
+        <h3 class='section-header'>Memberships</h3>
+        <div class='row membership-tiers text-center'>
+          <div class='col-sm-4'>
+            <div class='membership-option-container' id='standard'>
+              <div class='membership-checkbox'>
+                <div class='empty-checkbox'></div>
+                <div class='checked-checkbox'>
+                  <img src='assets/checkmark.png' class='check' alt='Checked'>
+                </div>
+              </div>
+              <div class='membership-price'>
+                <h1>$20.00</h1>
+                per month
+              </div>
+              <h3 class='column-heading'>Adventurer (Standard)</h3>
+              The Adventurer subscription offers fun activities right in your neighborhood such as historic walking tours, bike tours and family-friendy scavenger hunts.
+              <br/><br/>
+              Walking Tours<br/>
+              Other Tours<br/>
+            </div>
+          </div>
+          <div class='col-sm-4'>
+            <div class='membership-option-container' id='gold'>
+              <div class='membership-checkbox'>
+                <div class='empty-checkbox'></div>
+                <div class='checked-checkbox'>
+                  <img src='assets/checkmark.png' class='check' alt='Checked'>
+                </div>
+              </div>
+              <div class='membership-price'>
+                <h1>$50.00</h1>
+                per month
+              </div>
+              <h3 class='column-heading'>Explorer (Gold)</h3>
+              Do a variety of activities with our Explorer subscription, including food and cocktail tours, vintage VW bus tours and major city attractions.
+              <br/><br/>
+              Culinary Tours<br/>
+              Other Tours
+            </div>
+          </div>
+          <div class='col-sm-4'>
+            <div class='membership-option-container selected-membership' id='platinum'>
+              <div class='membership-checkbox'>
+                <div class='empty-checkbox'></div>
+                <div class='checked-checkbox'>
+                  <img src='assets/checkmark.png' class='check' alt='Checked'>
+                </div>
+              </div>
+              <div class='membership-price'>
+                <h1>$100.00</h1>
+                per month
+              </div>
+              <h3 class='column-heading'>Voyager (Platinum)</h3>
+              With our Voyager subscription, experience thrilling outdoor adventures such as seaplane or hot air balloon tours, luxourious wine country tours, or private sailing charters.
+              <br/><br/>
+              Helicopter Tours<br/>
+              Other Tours
+            </div>
+          </div>
+        </div>
+      </div>
+      <div id='card-info-container' class='section'>
+        <h3 class='section-header'>Enter Credit Card Information</h3>
+        <div class='row'>
+          <div class='col-sm-3'>
+            <label>Name On Card</label><br/>
+            <input type='text' name='nameOnCard' id='name-on-card' class='text-input'>
+          </div>
+          <div class='col-sm-3'>
+            <label>Card Number</label><br/>
+            <input type='text' name='cardNumber' id='card-number' class='text-input'>
+          </div>
+          <div class='col-sm-3'>
+            <label>Expiration Date (mm/yy)</label><br/>
+            <input type='text' name='cardExpDate' id='card-exp-date' class='text-input'>
+          </div>
+          <div class='col-sm-3'>
+            <label>CVV</label><br/>
+            <input type='text' name='cardCvv' id='card-cvv' class='text-input'>
+          </div>
+        </div>
+      </div>
+      <div class='section'>
         <br/>
-        <div class='divider'></div>
+        <button class='button orange-bottom btn-lg btn btn-long btn-primary'>Sign Up</button>
         <br/>
-        <div class='section cc-info'>
-          <h3>Enter Credit Card Information</h3>
-          <label>Name on Card <input type='text' class='form-control' name='cardName'></label><br/>
-          <label>Card Number<input type='text' class='form-control' name='cardNum'></label><br/>
-          <label>Expiration Date <input type='text' class='form-control' placeholder='MM/YY' name='expDate'></label><br/>
-          <label>CVV <input type='text' class='form-control' name='cvv'></label><br/>
-        <button class='button btn-lg btn btn-primary'>Go!</button>
-      </form>
-    </div>
-
+      </div>
+      <div class='footer'>
+        <img src='assets/people_city_outline.png' class='footer-image' alt='Peek'>
+        <div class='block'>
+          <div class='powered-by-peek'>
+            <img src='assets/peek_logo.png' alt='Powered by Peek' class='footer-logo'>
+            <div class='powered-by-text'>Powered by Peek.com</div>
+          </div>
+        </div>
+      </div>
+    </form>
     <script src="//ajax.googleapis.com/ajax/libs/jquery/1.7.2/jquery.min.js" type="text/javascript"></script>
+    <script src="js/sign_up.js" type="text/javascript"></script>
   </body>
 </html>

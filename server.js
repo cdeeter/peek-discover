@@ -17,7 +17,7 @@ app.set('view engine', 'html');
 app.set('views', __dirname + '/views');
 app.set('port', (process.env.PORT || 8080));
 
-app.post('/email', function (req, res) {
+app.post('/signup_email', function (req, res) {
   var directConfig = 'direct:?name=Gmail';
   var transporter = nodemailer.createTransport(directConfig);
   var templates = new EmailTemplates({root: __dirname});

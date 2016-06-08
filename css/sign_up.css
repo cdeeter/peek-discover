@@ -1,0 +1,110 @@
+div{
+  color: #9b9b9b;
+}
+
+.section{
+  padding: 10px 35px 30px 35px;
+  width: 100%;
+}
+
+.section-header{
+  margin-top: 10px;
+  color: #555;
+}
+
+.column-heading{
+  font-size: 18px;
+  color: #4a4a4a;
+  padding-bottom: 5px;
+}
+
+#logo-container{
+  height: 100px;
+  background-color: #2ca3ff;
+}
+
+#peek-discover-logo{
+  padding-top: 10px;
+}
+
+#personal-info-container{
+  height: 180px;
+  background-color: #f7f7f7;
+}
+
+#personal-info-container label, #card-info-container label{
+  font-weight: normal;
+  font-size: 16px;
+  color: #9b9b9b;
+}
+
+.text-input{
+  padding: 7px 15px 7px 15px;
+  width: 100%;
+  border: 1px solid #c3c0c0;
+  background-color: #f7f7f7;
+  border-radius: 4px;
+  font-size: 20px;
+  color: #9b9b9b;
+}
+
+.category{
+  padding-top: 5px;
+  padding-bottom: 5px;
+}
+
+.empty-checkbox, .checked-checkbox{
+  border-radius: 50%;
+  border: 1px solid #c3c0c0;
+  height: 30px;
+  width: 30px;
+  display: inline-block;
+  vertical-align: middle;
+  margin-right: 10px;
+  cursor: pointer;
+  background-color: white;
+}
+
+.checked-checkbox{
+  border-color: #6bb915;
+  display: none;
+}
+
+.check{
+  height: 20px;
+  width: 20px;
+  display: block;
+  margin-left: 8px;
+  z-index: 5;
+}
+
+.membership-option-container{
+  padding: 10px 5px 20px 5px;
+}
+
+.membership-option-container .checked-checkbox{
+  margin: auto;
+}
+
+.selected-membership{
+  border-radius: 4px;
+	background-color: #fafafa;
+	border: solid 0.5px #d7d7d7;
+}
+
+#card-info-container{
+  background-color: #f7f7f7;
+}
+
+
+
+/* REMOVE!!! */
+#platinum .empty-checkbox, #preferences-container > .row > .col-sm-4:first-child .empty-checkbox{
+  display: none;
+}
+#platinum .checked-checkbox {
+  display: block;
+}
+#preferences-container > .row > .col-sm-4:first-child .checked-checkbox{
+  display: inline-block;
+}

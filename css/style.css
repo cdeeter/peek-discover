@@ -1,0 +1,64 @@
+/* General */
+.divider{
+  border-bottom: 1px solid #ebebeb;
+  width: 95%;
+  display: block;
+  margin: auto;
+}
+
+/* Memberships */
+.membership-price{
+  color: #6bb915;
+}
+
+.membership-tiers h1, .membership-tiers h3{
+  margin-bottom: 0px;
+  padding-bottom: 10px;
+  line-height: 1;
+}
+
+.memberships .membership-signup-button{
+  margin-top: 25px;
+  width: 200px;
+}
+
+button{
+  color: #555555;
+}
+
+button.btn-long{
+  width: 300px;
+}
+
+button.orange-bottom{
+  border-bottom: 3px solid orange;
+}
+
+
+/* Footer */
+.footer .block{
+	height: 100px;
+	background-color: #f8f8f8;
+}
+
+.footer .footer-image{
+  display: block;
+  margin: auto;
+}
+
+.footer .powered-by-peek{
+  padding-top: 50px;
+  padding-left: 25px;
+}
+
+.footer .footer-logo{
+  height: 30px;
+  width: 30px;
+  vertical-align: bottom;
+  display: inline;
+}
+
+.footer .powered-by-text{
+  font-size: 11px;
+  display: inline;
+}

@@ -56,7 +56,7 @@ var homeController = (function(){
       var findHideSelector = selectors.homePage.find(sectionToHide);
 
       this.hideSection(findHideSelector);
-      findShowSelector.show();
+      findShowSelector.fadeIn(500);
     },
     signUp: function (email) {
       window.sessionStorage.setItem('peekDiscoverEmail', email);

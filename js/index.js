@@ -3,18 +3,20 @@ var homeController = (function (){
 
   return {
     init: function () {
-      selectors.homePage         = $("#home-page");
-      selectors.signupEmailField = $("#signup-email");
-      selectors.loginEmailField  = $("#login-email");
-      selectors.signupButton     = $("#signup-button");
-      selectors.loginButton      = $("#login-button");
-      selectors.loginForm        = $("#home-page #login-form");
-      selectors.signupForm       = $("#signup-form");
-      selectors.actionLinks      = $("#action-links");
-      selectors.signupLink       = $("#signup-link");
-      selectors.loginLink        = $("#login-link");
-      selectors.switchToSignup   = $("#or-signup-link");
-      selectors.switchToLogin    = $("#or-login-link");
+      selectors.homePage                = $("#home-page");
+      selectors.signupEmailField        = $("#signup-email");
+      selectors.loginEmailField         = $("#login-email");
+      selectors.signupButton            = $("#signup-button");
+      selectors.loginButton             = $("#login-button");
+      selectors.loginForm               = $("#home-page #login-form");
+      selectors.signupForm              = $("#signup-form");
+      selectors.actionLinks             = $("#action-links");
+      selectors.signupLink              = $("#signup-link");
+      selectors.loginLink               = $("#login-link");
+      selectors.switchToSignup          = $("#or-signup-link");
+      selectors.switchToLogin           = $("#or-login-link");
+      selectors.membershipSignupButtons = $(".membership-signup-button");
+
       this.bindUIActions();
     },
     bindUIActions: function () {
@@ -47,6 +49,12 @@ var homeController = (function (){
       selectors.switchToLogin.click(function () {
         this.showSection(selectors.loginForm, selectors.signupForm);
       }.bind(this));
+
+      selectors.membershipSignupButtons.click(function () {
+        var membershipType = $(this).attr('id').split('-')[0];
+
+        homeController.membershipSignUp(membershipType);
+      });
     },
     hideSection: function (selector) {
       selector.hide();
@@ -59,12 +67,16 @@ var homeController = (function (){
       findShowSelector.fadeIn(500);
     },
     signUp: function (email) {
-      window.sessionStorage.setItem('peekDiscoverEmail', email);
+      window.sessionStorage.setItem('signupEmail', email);
       window.location.assign('/sign_up.html');
     },
     logIn: function (email) {
-      window.sessionStorage.setItem('peekLoginEmail', email);
+      window.sessionStorage.setItem('loginEmail', email);
       window.location.assign('/profile.html');
+    },
+    membershipSignUp: function(membershipType) {
+      window.sessionStorage.setItem('membershipType', membershipType);
+      window.location.assign('/sign_up.html');
     },
   }
 })();

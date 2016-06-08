@@ -3,18 +3,23 @@ var signupController = (function (){
 
   return {
     init: function () {
-      selectors.emptyCategoryCheckbox = $('.category').find('.empty-checkbox');
-      selectors.selectedCategoryCheckbox = $('.category').find('.checked-checkbox');
-      selectors.selectedCategoriesList = $('#selected-categories');
-      selectors.emptyMembershipCheckbox = $('.membership').find('.empty-checkbox');
+      selectors.emptyCategoryCheckbox      = $('.category').find('.empty-checkbox');
+      selectors.selectedCategoryCheckbox   = $('.category').find('.checked-checkbox');
+      selectors.selectedCategoriesList     = $('#selected-categories');
+      selectors.categoryNames              = $('.category-name');
+      selectors.emptyMembershipCheckbox    = $('.membership').find('.empty-checkbox');
       selectors.selectedMembershipCheckbox = $('.membership').find('.checked-checkbox');
-      selectors.selectedMembershipList = $('#selected-membership-plan');
-      selectors.membershipsSection = $("#memberships");
+      selectors.selectedMembershipList     = $('#selected-membership-plan');
+      selectors.membershipsSection         = $('#memberships');
+      selectors.email                      = $('#email');
+
+      this.setSignupEmail();
+      this.checkForMembership();
       this.bindUIActions();
     },
     bindUIActions: function () {
       selectors.emptyCategoryCheckbox.click(function () {
-        var selectedCategory = $(this).closest('.category').text().trim();
+        var selectedCategory = $(this).closest('.category').find('.category-name').text();
 
         signupController.controlCategories(selectedCategory, 'add', $(this));
       });
@@ -26,16 +31,24 @@ var signupController = (function (){
       });
 
       selectors.emptyMembershipCheckbox.click(function () {
-        var selectedMembership = $(this).closest('.membership-option-container').find('.membership-type').text();
+        var selectedMembership = $(this).closest('.membership-option-container').find('.membership-type')
+                                    .text().toLowerCase();
 
         signupController.setMembership(selectedMembership, $(this));
       });
 
       selectors.selectedMembershipCheckbox.click(function () {
-        var selectedMembership = $(this).closest('.membership-option-container').find('.membership-type').text();
+        var selectedMembership = $(this).closest('.membership-option-container').find('.membership-type')
+                                    .text().toLowerCase();
 
         signupController.setMembership(selectedMembership, $(this));
       });
+    },
+    setSignupEmail: function () {
+      var email = window.sessionStorage.getItem('signupEmail');
+
+      selectors.email.val(email);
+      window.sessionStorage.removeItem('signupEmail');
     },
     controlCategories: function (category, action, context) {
       var categoryList = selectors.selectedCategoriesList.val();
@@ -54,15 +67,35 @@ var signupController = (function (){
 
       context.hide().closest('.category').find(oppositeCheckbox).css('display', 'inline-block');
     },
+    checkForMembership: function () {
+      var membershipType = window.sessionStorage.getItem('membershipType');
+
+      if (membershipType) {
+        var membershipTypeId = "#" + membershipType;
+        var membershipTypeCheckbox = $(membershipTypeId).find('.empty-checkbox');
+
+        this.setMembership(membershipType, membershipTypeCheckbox);
+
+        window.sessionStorage.removeItem('membershipType');
+      }
+    },
     setMembership: function (membershipType, context) {
-      // remove old selected membership class from old membership and
-      // add selected membership class to new membership
+      // remove old selected membership class from old membership and add selected membership class to new membership
       selectors.membershipsSection.find('.membership-option-container').removeClass('selected-membership');
       context.closest('.membership-option-container').addClass('selected-membership');
 
       // uncheck old checkbox and check the new one
       selectors.membershipsSection.find('.checked-checkbox').hide().prev('.empty-checkbox').show();
       context.hide().closest('.membership-option-container').find('.checked-checkbox').show();
+
+      // hide categories irrelevant to membership
+      selectors.categoryNames.each(function () {
+        if (!$(this).hasClass(membershipType)) {
+          $(this).closest('.category').hide();
+        } else {
+          $(this).closest('.category').show();
+        }
+      });
 
       // save membership type
       selectors.selectedMembershipList.val(membershipType);

@@ -26,7 +26,7 @@ app.post('/signup_email', function (req, res) {
     firstName: req.body.firstName
   };
 
-  templates.render('views/signup_email.html', context, function(err, html, text) {
+  templates.render('signup_email.html', context, function(err, html, text) {
     if (err) {
       res.status('500');
       return console.log(err);

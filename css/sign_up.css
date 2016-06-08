@@ -21,6 +21,8 @@ div{
 #logo-container{
   height: 100px;
   background-color: #2ca3ff;
+  position: relative;
+  z-index: 10;
 }
 
 #peek-discover-logo{
@@ -28,7 +30,7 @@ div{
 }
 
 #personal-info-container{
-  min-height: 180px;
+  min-height: 150px;
   background-color: #f7f7f7;
 }
 
@@ -36,6 +38,13 @@ div{
   font-weight: normal;
   font-size: 16px;
   color: #9b9b9b;
+}
+
+.form-background-image{
+  position: absolute;
+  right: -35px;
+  height: 200px;
+  margin-top: -30px;
 }
 
 .text-input{

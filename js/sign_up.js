@@ -77,11 +77,10 @@ var signupController = (function (){
       }
     },
     setMembership: function (membershipType, context) {
-
       this.unsetMembership();
 
       context.closest('.membership-option-container').addClass('selected-membership');
-      context.hide().closest('.membership-option-container').find('.checked-checkbox').show();
+      context.hide().closest('.membership-option-container').find('.checked-checkbox').fadeIn();
       selectors.selectedMembershipList.val(membershipType);
 
       selectors.categoryNames.each(function () {

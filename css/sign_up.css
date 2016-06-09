@@ -18,6 +18,15 @@ div{
   padding-bottom: 5px;
 }
 
+.sub-heading{
+  text-align: right;
+  color: white;
+  top: 35px;
+  position: absolute;
+  right: 25px;
+  font-size: 22px;
+}
+
 #logo-container{
   height: 100px;
   background-color: #2ca3ff;
@@ -116,6 +125,6 @@ select.form-control{
 
 input::-webkit-outer-spin-button,
 input::-webkit-inner-spin-button {
-    -webkit-appearance: none;
-    margin: 0;
+  -webkit-appearance: none;
+  margin: 0;
 }

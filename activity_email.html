@@ -77,9 +77,6 @@
     a:hover {
       color: green;
     }
-    ul li {
-      margin-left: 5px;
-    }
     @media only screen and (min-device-width: 768px) and (max-device-width: 1024px) {
       a[href^='tel'],
       a[href^='sms'] {
@@ -114,24 +111,21 @@
           <tr>
             <td width='50'> </td>
             <td width='600' style='text-align:center;line-height:1.25'>
-              <h1>Welcome to PeekDiscover!</h1>
-              <h3>Adventures in Your Backyard</h3>
+              <h3>Hey there, {{userData.firstName}}!</h3>
+              <h2>Time for some fun!</h2>
             </td>
             <td width='50'> </td>
           </tr>
           <tr>
             <td width='50'></td>
             <td width='500' style='text-align:center;line-height:1.25'>
-              Hi {{firstName}},<br/><br/>
-              Thanks for signing up with PeekDiscover! Here is the profile you selected. You can change these settings anytime on your <a href='#'>profile page</a>.<br/><br/>
-              <h2 style='color:#2ca3ff'>Membership Details</h2>
-              <span style='font-size:18px;'>{{membership.name}} ({{membership.readonlyType}})</span><br/>
-              <span style='color:#6bb915;font-size:18px;'>{{membership.price}} per month</span><br/><br/>
-              <h2 style='color:#2ca3ff'>Activity Preferences</h2>
-                {% for activity in categories %}
-                  {{activity}}<br/>
-                {% endfor %}
-              </ul>
+              <h3>This month's activity:</h3>
+              <h1 style='color:#2ca3ff'>{{activityData.name}}</h1>
+              <h4>{{activityData.description}}</h4>
+              Date: Saturday, June 14th<br/><br/>
+              <button style='width:378px;height:67px;border-radius:4px;color:#555;background-color:#fff200;border:none;border-bottom:4px solid #ffca00;font-size:20px;'>
+                Confirm
+              </button>
             </td>
             <td width='50'></td>
           </tr>
@@ -139,10 +133,11 @@
             <td width='50'></td>
             <td width='500' style='text-align:center;line-height:1.25'>
               <br/><br/>
-              Your first activity will take place on: <span style='color:#2ca3ff'>Saturday, June 14th</span>
-              <br/><br/>
-              We can't wait to see you at your next activity!<br/><br/><br/>
-              <small>To book activities anytime, check out <a href='https://www.peek.com'>Peek.com</a></small>.            </td>
+              <h3>Have more friends coming on this tour?</h3>
+              <button style='width:378px;height:67px;border-radius:4px;color:#555;background-color:#fff200;border:none;border-bottom:4px solid #ffca00;font-size:20px;'>
+                Invite Friends to Group
+              </button>
+            </td>
             <td width='50'></td>
           </tr>
         </table>

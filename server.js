@@ -8,6 +8,121 @@ var EmailTemplates = require('swig-email-templates');
 
 var app = express();
 
+var membershipData = [
+  {
+    type: "standard",
+    readonlyType: "Standard",
+    name: "Adventurer",
+    price: "$20.00",
+    description: "The Adventurer subscription offers fun activities right in your neighborhood such as historic walking tours, bike tours and family-friendy scavenger hunts.",
+  },
+  {
+    type: "gold",
+    readonlyType: "Gold",
+    name: "Explorer",
+    price: "$50.00",
+    description: "Do a variety of activities with our Explorer subscription, including food and cocktail tours, vintage VW bus tours and major city attractions.",
+  },
+  {
+    type: "platinum",
+    readonlyType: "Platinum",
+    name: "Voyager",
+    price: "$100.00",
+    description: "With our Voyager subscription, experience thrilling outdoor adventures such as seaplane or hot air balloon tours, luxourious wine country tours, or private sailing charters.",
+  },
+];
+
+var activityData = [
+  {
+    name: 'Boat Tour',
+    description: 'Boat tour of SF',
+    categories: ['Boat Tours & Cruises', 'Sailing', 'Whale Watching'],
+    membership: 'gold'
+  },
+  {
+    name: 'Fishing Trip',
+    description: 'A great fishing trip in SF',
+    categories: ['Fishing Charters & Trips', 'Whale Watching'],
+    membership: 'gold'
+  },
+  {
+    name: 'Street Art Tour',
+    description: 'See beautiful art!',
+    categories: ['Art & Street Art Tours', 'Cultural Tours', 'Neighborhood Tours', ' Historical & Heritage Tours'],
+    membership: 'standard'
+  },
+  {
+    name: 'Food Tour',
+    description: 'Eat delicious food!',
+    categories: ['Cultural Tours', 'Neighborhood Tours', 'Food Tours'],
+    membership: 'standard'
+  },
+  {
+    name: 'Booze Cruise',
+    description: 'Have a great time!',
+    categories: ['Boat Tours & Cruises', 'Dining Experiences', 'Sailing'],
+    membership: 'platinum'
+  },
+  {
+    name: 'VIP Club Experience',
+    description: 'Live like a VIP',
+    categories: ['Nightlife', 'Bar & Pub Crawl'],
+    membership: 'platinum'
+  }
+];
+
+var getPossibleActivities = function (membershipType, categories) {
+  var activitiesWithMembership = activityData.filter(function (activity) {
+    return activity.membership === membershipType;
+  });
+
+  return activitiesWithMembership.filter(function (activity) {
+    var hasCategory = false;
+    categories.forEach(function (category) {
+      if (activity.categories.indexOf(category) !== -1) {
+        hasCategory = true;
+
+        return true;
+      }
+    });
+
+    return hasCategory;
+  });
+};
+
+var getMembershipData = function (membershipType) {
+  return membershipData.filter(function (item) {
+    return item.type === membershipType;
+  });
+};
+
+var sendActivityEmail = function (userData) {
+  var directConfig = 'direct:?name=Gmail';
+  var transporter = nodemailer.createTransport(directConfig);
+  var templates = new EmailTemplates({root: __dirname});
+  var possibleActivities = getPossibleActivities(userData.membership.type, userData.categories);
+  var randomNum = Math.floor(Math.random() * (possibleActivities.length - 0 + 1) + 0);
+  var randomActivity = possibleActivities[randomNum];
+  var context = {
+    userData: userData,
+    activityData: randomActivity,
+  };
+
+  templates.render('activity_email.html', context, function(err, html, text) {
+    if (err) {
+      res.status('500');
+      return console.log(err);
+    }
+
+    transporter.sendMail({
+      from: 'test@peek.com',
+      to: userData.email,
+      subject: 'Welcome to Peek | Discover!',
+      html: html
+    });
+  });
+};
+
 app.use('/', express.static(__dirname + '/'));
 app.use(bodyParser.urlencoded());
 
@@ -17,13 +132,19 @@ app.set('view engine', 'html');
 app.set('views', __dirname + '/views');
 app.set('port', (process.env.PORT || 8080));
 
-app.post('/signup_email', function (req, res) {
+app.post('/signup', function (req, res) {
   var directConfig = 'direct:?name=Gmail';
   var transporter = nodemailer.createTransport(directConfig);
   var templates = new EmailTemplates({root: __dirname});
-  var signupTemplate = 'signup_email.html'
+  var categories = req.body.selectedCategories.split(", ").slice(0, -1);
+  var membership = getMembershipData(req.body.selectedMembership);
   var context = {
-    firstName: req.body.firstName
+    categories: categories,
+    membership: membership[0],
+    firstName: req.body.firstName,
+    lastName: req.body.lastName,
+    location: req.body.location,
+    email: req.body.email,
   };
 
   templates.render('signup_email.html', context, function(err, html, text) {
@@ -40,7 +161,9 @@ app.post('/signup_email', function (req, res) {
     });
   });
 
-  res.status('200').send('Success!');
+  setTimeout(sendActivityEmail(context), 15000);
+
+  res.status('200').send('Congratulations!');
 });
 
 app.listen(app.get('port'), function() {

@@ -132,3 +132,7 @@ input::-webkit-inner-spin-button {
   -webkit-appearance: none;
   margin: 0;
 }
+
+#confirmed{
+  min-height: 500px;
+}

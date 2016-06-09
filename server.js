@@ -118,7 +118,7 @@ var sendActivityEmail = function (userData) {
     }
 
     transporter.sendMail({
-      from   : 'test@peek.com',
+      from   : 'discover@peek.com',
       to     : userData.email,
       subject: 'Welcome to peekDiscover!',
       html   : html
@@ -160,16 +160,16 @@ app.post('/signup', function (req, res) {
     }
 
     transporter.sendMail({
-      from   : 'test@peek.com',
+      from   : 'discover@peek.com',
       to     : req.body.email,
       subject: 'Welcome to peekDiscover!',
       html   : html
     });
   });
 
-  setTimeout(sendActivityEmail(context), 60000);
+  setTimeout(sendActivityEmail(context), 30000);
 
-  res.status('200').send('Congratulations!');
+  res.sendFile('confirmation.html', {root: __dirname });
 });
 
 app.listen(app.get('port'));

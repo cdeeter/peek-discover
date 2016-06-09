@@ -100,7 +100,7 @@ var getMembershipData = function (membershipType) {
 };
 
 var sendActivityEmail = function (userData) {
-  var directConfig       = 'direct                 :?name =Gmail';
+  var directConfig       = 'direct:?name=Gmail';
   var transporter        = nodemailer.createTransport(directConfig);
   var templates          = new EmailTemplates({root: __dirname});
   var possibleActivities = getPossibleActivities(userData.membership.type, userData.categories);
@@ -136,7 +136,7 @@ app.set('views', __dirname + '/views');
 app.set('port', (process.env.PORT || 8080));
 
 app.post('/signup', function (req, res) {
-  var directConfig = 'direct                 :?name =Gmail';
+  var directConfig = 'direct:?name=Gmail';
   var transporter  = nodemailer.createTransport(directConfig);
   var templates    = new EmailTemplates({root: __dirname});
   var categories   = req.body.selectedCategories.split(", ").slice(0, -1);
@@ -164,6 +164,8 @@ app.post('/signup', function (req, res) {
       to     : req.body.email,
       subject: 'Welcome to peekDiscover!',
       html   : html
+    }, function(err){
+      console.log(err);
     });
   });
 

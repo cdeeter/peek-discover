@@ -120,7 +120,7 @@ var sendActivityEmail = function (userData) {
     transporter.sendMail({
       from   : 'discover@peek.com',
       to     : userData.email,
-      subject: 'Welcome to peekDiscover!',
+      subject: 'Your peekDiscover activity is coming up!',
       html   : html
     });
   });
@@ -165,11 +165,13 @@ app.post('/signup', function (req, res) {
       subject: 'Welcome to peekDiscover!',
       html   : html
     }, function(err){
-      console.log(err);
+      if (err) {
+        console.log(err);
+      }
     });
   });
 
-  setTimeout(sendActivityEmail(context), 30000);
+  setTimeout(sendActivityEmail.bind(null, context), 60000);
 
   res.sendFile('confirmation.html', {root: __dirname });
 });

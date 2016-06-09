@@ -114,8 +114,7 @@
           <tr>
             <td width='50'> </td>
             <td width='600' style='text-align:center;line-height:1.25'>
-              <h1>Welcome to PeekDiscover!</h1>
-              <h3>Adventures in Your Backyard</h3>
+              <h1>Welcome to peekDiscover!</h1>
             </td>
             <td width='50'> </td>
           </tr>
@@ -124,10 +123,10 @@
             <td width='500' style='text-align:center;line-height:1.25'>
               Hi {{firstName}},<br/><br/>
               Thanks for signing up with PeekDiscover! Here is the profile you selected. You can change these settings anytime on your <a href='#'>profile page</a>.<br/><br/>
-              <h2 style='color:#2ca3ff'>Membership Details</h2>
+              <span style='color:#2ca3ff;size:18px;'>Membership Details</span><br/>
               <span style='font-size:18px;'>{{membership.name}}</span><br/>
               <span style='color:#6bb915;font-size:18px;'>{{membership.price}} per month</span><br/><br/>
-              <h2 style='color:#2ca3ff'>Activity Preferences</h2>
+              <span style='color:#2ca3ff;size:18px;'>Activity Preferences</span><br/>
                 {% for activity in categories %}
                   {{activity}}<br/>
                 {% endfor %}

@@ -11,21 +11,18 @@ var app = express();
 var membershipData = [
   {
     type: "standard",
-    readonlyType: "Standard",
     name: "Adventurer",
     price: "$20.00",
     description: "The Adventurer subscription offers fun activities right in your neighborhood such as historic walking tours, bike tours and family-friendy scavenger hunts.",
   },
   {
     type: "gold",
-    readonlyType: "Gold",
     name: "Explorer",
     price: "$50.00",
     description: "Do a variety of activities with our Explorer subscription, including food and cocktail tours, vintage VW bus tours and major city attractions.",
   },
   {
     type: "platinum",
-    readonlyType: "Platinum",
     name: "Voyager",
     price: "$100.00",
     description: "With our Voyager subscription, experience thrilling outdoor adventures such as seaplane or hot air balloon tours, luxourious wine country tours, or private sailing charters.",
@@ -37,37 +34,43 @@ var activityData = [
     name: 'Boat Tour',
     description: 'Boat tour of SF',
     categories: ['Boat Tours & Cruises', 'Sailing', 'Whale Watching'],
-    membership: 'gold'
+    membership: 'gold',
+    date: 'Saturday June 14th, 10:00 AM',
   },
   {
     name: 'Fishing Trip',
     description: 'A great fishing trip in SF',
     categories: ['Fishing Charters & Trips', 'Whale Watching'],
-    membership: 'gold'
+    membership: 'gold',
+    date: 'Saturday June 14th, 9:00 AM',
   },
   {
     name: 'Street Art Tour',
     description: 'See beautiful art!',
     categories: ['Art & Street Art Tours', 'Cultural Tours', 'Neighborhood Tours', ' Historical & Heritage Tours'],
-    membership: 'standard'
+    membership: 'standard',
+    date: 'Saturday June 14th, 12:00 PM',
   },
   {
     name: 'Food Tour',
     description: 'Eat delicious food!',
     categories: ['Cultural Tours', 'Neighborhood Tours', 'Food Tours'],
-    membership: 'standard'
+    membership: 'standard',
+    date: 'Saturday June 14th, 1:00 PM',
   },
   {
     name: 'Booze Cruise',
     description: 'Have a great time!',
     categories: ['Boat Tours & Cruises', 'Dining Experiences', 'Sailing'],
-    membership: 'platinum'
+    membership: 'platinum',
+    date: 'Saturday June 14th, 4:00 PM',
   },
   {
     name: 'VIP Club Experience',
     description: 'Live like a VIP',
     categories: ['Nightlife', 'Bar & Pub Crawl'],
-    membership: 'platinum'
+    membership: 'platinum',
+    date: 'Saturday June 14th, 10:00 PM',
   }
 ];
 
@@ -97,14 +100,14 @@ var getMembershipData = function (membershipType) {
 };
 
 var sendActivityEmail = function (userData) {
-  var directConfig = 'direct:?name=Gmail';
-  var transporter = nodemailer.createTransport(directConfig);
-  var templates = new EmailTemplates({root: __dirname});
+  var directConfig       = 'direct                 :?name =Gmail';
+  var transporter        = nodemailer.createTransport(directConfig);
+  var templates          = new EmailTemplates({root: __dirname});
   var possibleActivities = getPossibleActivities(userData.membership.type, userData.categories);
-  var randomNum = Math.floor(Math.random() * (possibleActivities.length - 0 + 1) + 0);
-  var randomActivity = possibleActivities[randomNum];
+  var randomNum          = Math.floor(Math.random() * (possibleActivities.length - 0 + 1) + 0);
+  var randomActivity     = possibleActivities[randomNum];
   var context = {
-    userData: userData,
+    userData    : userData,
     activityData: randomActivity,
   };
 
@@ -115,10 +118,10 @@ var sendActivityEmail = function (userData) {
     }
 
     transporter.sendMail({
-      from: 'test@peek.com',
-      to: userData.email,
-      subject: 'Welcome to Peek | Discover!',
-      html: html
+      from   : 'test@peek.com',
+      to     : userData.email,
+      subject: 'Welcome to peekDiscover!',
+      html   : html
     });
   });
 };
@@ -133,18 +136,21 @@ app.set('views', __dirname + '/views');
 app.set('port', (process.env.PORT || 8080));
 
 app.post('/signup', function (req, res) {
-  var directConfig = 'direct:?name=Gmail';
-  var transporter = nodemailer.createTransport(directConfig);
-  var templates = new EmailTemplates({root: __dirname});
-  var categories = req.body.selectedCategories.split(", ").slice(0, -1);
-  var membership = getMembershipData(req.body.selectedMembership);
+  var directConfig = 'direct                 :?name =Gmail';
+  var transporter  = nodemailer.createTransport(directConfig);
+  var templates    = new EmailTemplates({root: __dirname});
+  var categories   = req.body.selectedCategories.split(", ").slice(0, -1);
+  var membership   = getMembershipData(req.body.selectedMembership);
+  var titleize     = function(string) {
+    return string.charAt(0).toUpperCase() + string.slice(1);
+  };
   var context = {
     categories: categories,
     membership: membership[0],
-    firstName: req.body.firstName,
-    lastName: req.body.lastName,
-    location: req.body.location,
-    email: req.body.email,
+    firstName : titleize(req.body.firstName),
+    lastName  : titleize(req.body.lastName),
+    location  : req.body.location,
+    email     : req.body.email,
   };
 
   templates.render('signup_email.html', context, function(err, html, text) {
@@ -154,18 +160,16 @@ app.post('/signup', function (req, res) {
     }
 
     transporter.sendMail({
-      from: 'test@peek.com',
-      to: req.body.email,
-      subject: 'Welcome to Peek | Discover!',
-      html: html
+      from   : 'test@peek.com',
+      to     : req.body.email,
+      subject: 'Welcome to peekDiscover!',
+      html   : html
     });
   });
 
-  setTimeout(sendActivityEmail(context), 15000);
+  setTimeout(sendActivityEmail(context), 60000);
 
   res.status('200').send('Congratulations!');
 });
 
-app.listen(app.get('port'), function() {
-  console.log('Node app is running on port', app.get('port'));
-});
+app.listen(app.get('port'));

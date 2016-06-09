@@ -38,6 +38,11 @@
   color: #fef135;
   font-size: 44px;
   font-weight: lighter;
+  line-height: 2;
+}
+
+#action-links a:hover{
+  text-decoration: none;
 }
 
 #signup-form{

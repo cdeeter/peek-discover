@@ -71,7 +71,7 @@ var homeController = (function (){
       window.location.assign('/sign_up.html');
     },
     logIn: function (email) {
-      window.sessionStorage.setItem('loginEmail', email);
+      console.log('going')
       window.location.assign('/profile.html');
     },
     membershipSignUp: function(membershipType) {

@@ -1,0 +1,256 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="UTF-8">
+    <title>PeekDiscover: Adventures In Your Own Backyard!</title>
+    <link rel="stylesheet" href="css/style.css" type="text/css">
+    <link rel="stylesheet" href="css/profile.css" type="text/css">
+    <link rel="stylesheet" href="css/bootstrap.css" type="text/css">
+    <link rel="stylesheet" href="css/bootstrap-theme.css" type="text/css">
+    <link href='https://fonts.googleapis.com/css?family=Lato' rel='stylesheet' type='text/css'>
+  </head>
+  <body id='profile-page'>
+    <div id='logo-container' class='section'>
+      <img src='assets/Peek_Discover_Logo.png' alt='Peek' id='peek-discover-logo'>
+      <div class='sub-heading hidden-xs'>Adventures in your own backyard!</div>
+    </div>
+    <div id='profile'>
+      <div id='profile-info'>
+        <div class='row'>
+          <div class='col-sm-6 left-info'>
+            <div class='row'>
+              <div class='col-xs-3'>
+                <img src='assets/sam.png' alt='Upload Image' class='image'>
+              </div>
+              <div class='col-xs-2 labels'>
+                First Name<br/>
+                Last Name<br/>
+                Email<br/>
+                City<br/>
+              </div>
+              <div class='col-xs-7'>
+                <span class='first-name'>Sam</span><br/>
+                <span class='last-name'>Shapiro</span><br/>
+                <span class='email'>sams@peek.com</span><br/>
+                <span class='location'>San Francisco</span><br/>
+              </div>
+            </div>
+          </div>
+          <div class='col-sm-4 middle-info'>
+            Upcoming Event:<br/>
+            <h2 class='upcoming-event-name'>Vantigo Beer Tours</h2>
+            <span class='upcoming-event-date'>Saturday, June 18th at 2:00 PM</span>
+          </div>
+          <div class='col-sm-2 right-info'>
+            <div class='text-center going'>
+              <img src='assets/going.png' alt='Going' class='going-face'>
+              <br/>Going
+            </div>
+            <div class='small text-center'>Call 555-555-555 to cancel</div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div id='group-info'>
+        Your Group<br/>
+        <img src='assets/celia.png' alt='Upload Image' class='image group-member'>
+        <img src='assets/katie.png' alt='Upload Image' class='image group-member'>
+        <img src='assets/akanksha.png' alt='Upload Image' class='image group-member'>
+        <div class='add-group-member text-center'>
+          <div class='plus-sign'>+</div>
+        </div>
+      </div>
+      <div id='edit-sections'>
+        <div id='account-section' class='toggled-section'>
+          <div class='section-title'>
+            <div class='section-title-details'>
+              <h4 class='inline'>Your Account</h4>
+              <div class='chevrons'>
+                <i class='glyphicon glyphicon-chevron-down click-to-show'></i>
+                <i class='glyphicon glyphicon-chevron-up click-to-hide'></i>
+              </div>
+            </div>
+            <div class='divider'></div>
+          </div>
+          <div class='section-content'>
+            <div class='row'>
+              <div class='col-sm-3'>
+                <input type='text' name='firstName' placeholder='First Name' id='first-name' class='text-input' value='Sam'>
+              </div>
+              <div class='col-sm-3'>
+                <input type='text' name='lastName' placeholder='Last Name' id='last-name' class='text-input' value='Shapiro'>
+              </div>
+              <div class='col-sm-3'>
+                <input type='text' name='email' placeholder='Email' id='email-address' class='text-input' value='sams@peek.com'>
+              </div>
+              <div class='col-sm-3'>
+                <select name='location' id='location' class='form-control' value='San Francisco'>
+                  <option>San Francisco, CA</option>
+                  <option>Los Angeles, CA</option>
+                  <option>Washington, D.C.</option>
+                  <option>Chicago, IL</option>
+                  <option>Seattle, WA</option>
+                  <option>Big Island, HI</option>
+                  <option>Boston, MA</option>
+                  <option>Cancun, Mexico</option>
+                  <option>Los Cabos, Mexico</option>
+                  <option>Kuaui, HI</option>
+                  <option>San Diego, CA</option>
+                  <option>Las Vegas, NV</option>
+                  <option>London, United Kingdom</option>
+                  <option>Maui, HI</option>
+                  <option>Miami, FL</option>
+                  <option>Napa and Sonoma, CA</option>
+                  <option>New York, NY</option>
+                  <option>Oahu, HI</option>
+                  <option>Orlando, FL</option>
+                  <option>Paris, France</option>
+                  <option>Philadelphia, PA</option>
+                  <option>Savannah, GA</option>
+                  <option>Tampa, FL</option>
+                </select>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div id='subscription-section' class='toggled-section'>
+          <div class='section-title'>
+            <div class='section-title'>
+              <div class='section-title-details'>
+                <h4 class='inline'>Modify Subscription</h4>
+                <div class='chevrons'>
+                  <i class='glyphicon glyphicon-chevron-down click-to-show'></i>
+                  <i class='glyphicon glyphicon-chevron-up click-to-hide'></i>
+                </div>
+              </div>
+              <div class='divider'></div>
+            </div>
+          </div>
+          <div class='section-content'>
+            <div class='row membership-tiers text-center'>
+              <div class='col-sm-4'>
+                <div class='membership-option-container' id='standard'>
+                  <div class='membership'>
+                    <div class='empty-checkbox'></div>
+                    <div class='checked-checkbox'>
+                      <img src='assets/checkmark.png' class='check' alt='Checked'>
+                    </div>
+                  </div>
+                  <div class='membership-price'>
+                    <h1>$20.00</h1>
+                    per month
+                  </div>
+                  <h3 class='column-heading'>Adventurer <span class='membership-type hidden'>Standard</span></h3>
+                  The Adventurer subscription offers fun activities right in your neighborhood such as historic walking tours, bike tours and family-friendy scavenger hunts.
+                </div>
+              </div>
+              <div class='visible-xs'><div class='divider'></div><br/></div>
+              <div class='col-sm-4'>
+                <div class='membership-option-container selected-membership' id='gold'>
+                  <div class='membership'>
+                    <div class='empty-checkbox'></div>
+                    <div class='checked-checkbox'>
+                      <img src='assets/checkmark.png' class='check' alt='Checked'>
+                    </div>
+                  </div>
+                  <div class='membership-price'>
+                    <h1>$50.00</h1>
+                    per month
+                  </div>
+                  <h3 class='column-heading'>Explorer <span class='membership-type hidden'>Gold</span></h3>
+                  Do a variety of activities with our Explorer subscription, including food and cocktail tours, vintage VW bus tours and major city attractions.
+                </div>
+              </div>
+              <div class='visible-xs'><div class='divider'></div><br/></div>
+              <div class='col-sm-4'>
+                <div class='membership-option-container' id='platinum'>
+                  <div class='membership'>
+                    <div class='empty-checkbox'></div>
+                    <div class='checked-checkbox'>
+                      <img src='assets/checkmark.png' class='check' alt='Checked'>
+                    </div>
+                  </div>
+                  <div class='membership-price'>
+                    <h1>$100.00</h1>
+                    per month
+                  </div>
+                  <h3 class='column-heading'>Voyager <span class='membership-type hidden'>Platinum</span></h3>
+                  With our Voyager subscription, experience thrilling outdoor adventures such as seaplane or hot air balloon tours, luxourious wine country tours, or private sailing charters.
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div id='preferences-section' class='toggled-section'>
+          <div class='section-title'>
+            <div class='section-title-details'>
+              <h4 class='inline'>Preferences</h4>
+              <div class='chevrons'>
+                <i class='glyphicon glyphicon-chevron-down click-to-show'></i>
+                <i class='glyphicon glyphicon-chevron-up click-to-hide'></i>
+              </div>
+            </div>
+            <div class='divider'></div>
+          </div>
+          <div class='section-content'>
+          </div>
+        </div>
+        <div id='cc-section' class='toggled-section'>
+          <div class='section-title'>
+            <div class='section-title-details'>
+              <h4 class='inline'>Credit Card Information</h4>
+              <div class='chevrons'>
+                <i class='glyphicon glyphicon-chevron-down click-to-show'></i>
+                <i class='glyphicon glyphicon-chevron-up click-to-hide'></i>
+              </div>
+            </div>
+            <div class='divider'></div>
+          </div>
+          <div class='section-content'>
+            <div class='row'>
+              <div class='col-sm-3'>
+                <input type='text' name='nameOnCard' placeholder='Name on Card' value='Sam Shapiro' id='name-on-card' class='text-input'>
+              </div>
+              <div class='col-sm-3'>
+                <input type='number' name='cardNumber' placeholder='Card Number' value='4242424242424242' id='card-number' class='text-input'>
+              </div>
+              <div class='col-sm-3'>
+                <input type='text' name='cardExpDate' placeholder='Expiration Date (mm/yy)' value='10/20' id='card-exp-date' class='text-input'>
+              </div>
+              <div class='col-sm-3'>
+                <input type='number' name='cardCvv' placeholder='CVV' value='199' id='card-cvv' class='text-input'>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div id='history-section' class='toggled-section'>
+          <div class='section-title'>
+            <div class='section-title-details'>
+              <h4 class='inline'>History</h4>
+              <div class='chevrons'>
+                <i class='glyphicon glyphicon-chevron-down click-to-show'></i>
+                <i class='glyphicon glyphicon-chevron-up click-to-hide'></i>
+              </div>
+            </div>
+            <div class='divider'></div>
+          </div>
+          <div class='section-content'>
+            <h3>Saturday May 14th: &nbsp; <span class='blue'>Avital Tours</span></h3>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class='footer white-bg'>
+      <img src='assets/people_city_outline.png' class='footer-image' alt='Peek'>
+      <div class='block'>
+        <div class='powered-by-peek'>
+          <img src='assets/peek_logo.png' alt='Powered by Peek' class='footer-logo'>
+          <div class='powered-by-text'>Powered by Peek.com</div>
+        </div>
+      </div>
+    </div>
+    <script src="//ajax.googleapis.com/ajax/libs/jquery/1.7.2/jquery.min.js" type="text/javascript"></script>
+    <script src="js/sign_up.js" type="text/javascript"></script>
+    <script src="js/profile.js" type="text/javascript"></script>
+  </body>
+</html>

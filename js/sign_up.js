@@ -103,7 +103,7 @@ var signupController = (function (){
     },
     unsetMembership: function (membershipOptionContainer) {
       membershipOptionContainer.removeClass('selected-membership');
-      membershipOptionContainer.find('.checked-checkbox').hide().prev('.empty-checkbox').show();
+      membershipOptionContainer.find('.checked-checkbox').hide().prev('.empty-checkbox').css('display', 'inline-block');
       this.clearCategories();
     },
   }

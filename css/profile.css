@@ -1,0 +1,158 @@
+#group-info, #edit-sections, #logo-container{
+  padding: 10px 35px 30px 35px;
+  width: 100%;
+}
+
+#profile-info{
+  background-color: #f7f7f7;
+  height: 150px;
+  font-size: 18px;
+	color: #4a4a4a;
+  padding: 10px 30px 15px 30px;
+  line-height: 1.75;
+}
+
+.labels{
+  font-size: 14px;
+  color: #9b9b9b;
+  font-weight: normal;
+  line-height: 2.25;
+}
+
+#profile-info .left-info{
+  border-right: 1px solid #e8e8e8
+}
+
+#profile-info .middle-info{
+  padding-left: 35px;
+}
+
+.glyphicon-chevron-down, .glyphicon-chevron-up{
+  color: #2ca3ff;
+  font-size: 26px;
+  vertical-align: middle;
+  padding-top: 20px;
+  cursor: pointer;
+}
+
+.image{
+  border-radius: 50%;
+  height: 125px;
+  width: 125px;
+}
+
+.group-member, .add-group-member{
+  height: 75px;
+  width: 75px;
+  margin-right: 20px;
+}
+
+.add-group-member{
+  display: inline-block;
+  border-radius: 50%;
+  border: 1px solid #2ca3ff;
+  vertical-align: middle;
+  font-size: 65px;
+  color: #2ca3ff;
+  font-weight: lighter;
+  cursor: pointer;
+}
+
+.plus-sign{
+  margin-top: -15px;
+}
+
+h4.inline, .chevrons{
+  display: inline-block;
+}
+
+.chevrons{
+  float: right;
+}
+
+.section-title-details{
+  width: 400px;
+}
+
+.upcoming-event-name{
+  margin-top: 0px;
+  margin-bottom: 0px;
+  color: #2ca3ff;
+}
+
+.upcoming-event-date{
+  font-size: 14px;
+  color: #9b9b9b;
+}
+
+.going{
+  color: #417505;
+}
+
+.going-face{
+  height: 85px;
+  width: 85px;
+}
+
+#group-info{
+  margin-top: 25px;
+}
+
+#profile-page .hidden-section, #profile-page .click-to-hide{
+  display: none;
+}
+
+.section-content{
+  display: none;
+  padding-top: 15px;
+  padding-bottom: 10px;
+}
+
+.divider{
+  margin-left: 1px;
+}
+
+.account-info{
+  width: 225px;
+}
+
+#profile-info .small{
+  font-size: 12px;
+}
+
+#account-section .section-content{
+  color: #4a4a4a;
+  line-height: 2;
+}
+
+#account-section .section-content a{
+  color: #4a90e2;
+  font-size: 12px;
+}
+
+#subscription-section .column-heading{
+  font-size: 18px;
+  color: #4a4a4a;
+  padding-bottom: 5px;
+}
+
+#subscription-section #gold .empty-checkbox{
+  display: none;
+}
+
+#subscription-section #gold .checked-checkbox{
+  display: inline-block;
+}
+
+#cc-section .text-input, #account-section .text-input{
+  padding: 7px 15px 7px 15px;
+  width: 100%;
+  border: 1px solid #c3c0c0;
+  border-radius: 4px;
+  font-size: 16px;
+  color: #000;
+}
+
+#history-section h3{
+  margin-top: 1px;
+}

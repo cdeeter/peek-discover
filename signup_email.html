@@ -121,12 +121,12 @@
           <tr>
             <td width='50'></td>
             <td width='500' style='text-align:center;line-height:1.25'>
-              Hi {{firstName}},<br/><br/>
-              Thanks for signing up with PeekDiscover! Here is the profile you selected. You can change these settings anytime on your <a href='#'>profile page</a>.<br/><br/><br/>
-              <span style='color:#2ca3ff;font-size:20px;'>Membership Details</span><br/>
-              <span style='font-size:18px;'>{{membership.name}}</span><br/>
+              <h3>Hi {{firstName}},</h3>
+              <span style='color:#9b9b9b'>Thanks for signing up with peekDiscover! Here are your membership details:</span><br/><br/>
+              <h3 style='margin-top:1px;margin-bottom:1px;'>Membership Details</h3>
+              <span style='font-size:22px;color:#2ca3ff;'>{{membership.name}}</span><br/>
               <span style='color:#6bb915;font-size:18px;'>{{membership.price}} per month</span><br/><br/><br/>
-              <span style='color:#2ca3ff;font-size:20px;'>Activity Preferences</span><br/>
+              <h3 style='margin-top:1px;margin-bottom:1px;'>Activity Preferences</h3>
                 {% for activity in categories %}
                   {{activity}}<br/>
                 {% endfor %}
@@ -138,9 +138,9 @@
             <td width='50'></td>
             <td width='500' style='text-align:center;line-height:1.25'>
               <br/><br/>
-              Your first activity will take place on: <span style='color:#2ca3ff'>Saturday, June 14th</span>
-              <br/><br/>
               We can't wait to see you at your next activity!<br/><br/><br/>
+              To view or change these settings, visit your <a href='https://peek-discover.herokuapp.com/profile.html'>profile page</a>.
+              <br/><br/>
               <small>To book activities anytime, check out <a href='https://www.peek.com'>Peek.com</a></small>.            </td>
             <td width='50'></td>
           </tr>

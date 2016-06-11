@@ -53,6 +53,9 @@
       color: #4a4a4a;
       font-weight: normal
     }
+    h3{
+      font-size: 16px;
+    }
     table td {
       border-collapse: collapse;
     }
@@ -125,7 +128,7 @@
               <span style='color:#9b9b9b'>Thanks for signing up with peekDiscover! Here are your membership details:</span><br/><br/>
               <h3 style='margin-top:1px;margin-bottom:1px;'>Membership Details</h3>
               <span style='font-size:22px;color:#2ca3ff;'>{{membership.name}}</span><br/>
-              <span style='color:#6bb915;font-size:18px;'>{{membership.price}} per month</span><br/><br/><br/>
+              <span style='color:#2ca3ff;font-size:16px;'>{{membership.price}} per month</span><br/><br/><br/>
               <h3 style='margin-top:1px;margin-bottom:1px;'>Activity Preferences</h3>
                 {% for activity in categories %}
                   {{activity}}<br/>

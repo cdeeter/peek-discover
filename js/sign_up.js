@@ -14,6 +14,7 @@ var signupController = (function (){
       selectors.selectedMembershipList     = $('#selected-membership-plan');
       selectors.membershipsSection         = $('#memberships');
       selectors.email                      = $('#email');
+      selectors.signupButton               = $('#signup-button');
 
       this.setSignupEmail();
       this.checkForMembership();
@@ -55,6 +56,11 @@ var signupController = (function (){
       if (action === 'add') {
         categoryList += category + ", ";
         selectors.selectedCategoriesList.val(categoryList);
+
+        if (selectors.selectedMembershipList.val()) {
+          selectors.signupButton.prop('disabled', false);
+        }
+
       } else {
         var cutStart = categoryList.indexOf(category);
         var cutEnd = cutStart + category.length + 2;
@@ -68,8 +74,8 @@ var signupController = (function (){
     clearCategories: function () {
       selectors.categoryPreferences.find('.checked-checkbox').hide();
       selectors.categoryPreferences.find('.empty-checkbox').css('display', 'inline-block');
+      selectors.categoryPreferences.find('.category').show();
       selectors.selectedCategoriesList.val('');
-
     },
     checkForMembership: function () {
       var membershipType = window.sessionStorage.getItem('membershipType');
@@ -81,6 +87,8 @@ var signupController = (function (){
         this.setMembership(membershipType, membershipContainer);
 
         window.sessionStorage.removeItem('membershipType');
+      } else {
+        selectors.signupButton.prop('disabled', true);
       }
     },
     setMembership: function (membershipType, context) {
@@ -105,6 +113,7 @@ var signupController = (function (){
       membershipOptionContainer.removeClass('selected-membership');
       membershipOptionContainer.find('.checked-checkbox').hide().prev('.empty-checkbox').css('display', 'inline-block');
       this.clearCategories();
+      selectors.signupButton.prop('disabled', true);
     },
   }
 })();

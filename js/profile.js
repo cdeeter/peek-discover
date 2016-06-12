@@ -3,9 +3,14 @@ var profileController = (function (){
 
   return {
     init: function () {
-      selectors.showSectionChevron = $('.click-to-show');
-      selectors.hideSectionChevron = $('.click-to-hide');
+      selectors.showSectionChevron     = $('.click-to-show');
+      selectors.hideSectionChevron     = $('.click-to-hide');
+      selectors.categoryNames          = $('.category-name');
+      selectors.selectedMembershipPlan = $("#selected-membership-plan");
+      selectors.selectedCategoriesList = $('#selected-categories');
+
       this.bindUIActions();
+      this.setUpCategories();
     },
     bindUIActions: function () {
       selectors.showSectionChevron.click(function () {
@@ -20,6 +25,22 @@ var profileController = (function (){
         $(this).prev('.click-to-show').css('display', 'inline-block');
       });
     },
+    setUpCategories: function () {
+      var membershipType = selectors.selectedMembershipPlan.val();
+
+      selectors.categoryNames.each(function () {
+        if (!$(this).hasClass(membershipType)) {
+          $(this).closest('.category').hide();
+        } else {
+          $(this).closest('.category').show();
+        }
+
+        if (selectors.selectedCategoriesList.val().indexOf($(this).text()) !== -1) {
+          $(this).closest('.category').find('.checked-checkbox').css('display', 'inline-block');
+          $(this).closest('.category').find('.empty-checkbox').hide();
+        }
+      });
+    }
   };
 })();
 

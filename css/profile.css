@@ -156,3 +156,12 @@ h4.inline, .chevrons{
 #history-section h3{
   margin-top: 1px;
 }
+
+#preferences-section .category {
+  padding-top: 5px;
+  padding-bottom: 5px;
+}
+
+#preferences-section .empty-checkbox, #preferences-section .checked-checkbox{
+  margin-right: 10px;
+}

@@ -136,14 +136,6 @@ h4.inline, .chevrons{
   padding-bottom: 5px;
 }
 
-#subscription-section #gold .empty-checkbox{
-  display: none;
-}
-
-#subscription-section #gold .checked-checkbox{
-  display: inline-block;
-}
-
 #cc-section .text-input, #account-section .text-input{
   padding: 7px 15px 7px 15px;
   width: 100%;

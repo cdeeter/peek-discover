@@ -3,35 +3,38 @@ var homeController = (function (){
 
   return {
     init: function () {
-      selectors.homePage                = $("#home-page");
-      selectors.signupEmailField        = $("#signup-email");
-      selectors.loginEmailField         = $("#login-email");
-      selectors.signupButton            = $("#signup-button");
-      selectors.loginButton             = $("#login-button");
-      selectors.loginForm               = $("#home-page #login-form");
-      selectors.signupForm              = $("#signup-form");
-      selectors.actionLinks             = $("#action-links");
-      selectors.signupLink              = $("#signup-link");
-      selectors.loginLink               = $("#login-link");
-      selectors.switchToSignup          = $("#or-signup-link");
-      selectors.switchToLogin           = $("#or-login-link");
-      selectors.membershipSignupButtons = $(".membership-signup-button");
+      selectors.homePage                = $('#home-page');
+      selectors.signupEmailInput        = $('#signup-email');
+      selectors.loginEmailInput         = $('#login-email');
+      selectors.loginPasswordInput      = $('#login-password');
+      selectors.signupButton            = $('#signup-button');
+      selectors.loginButton             = $('#login-button');
+      selectors.loginForm               = $('#home-page #login-form');
+      selectors.signupForm              = $('#signup-form');
+      selectors.actionLinks             = $('#action-links');
+      selectors.signupLink              = $('#signup-link');
+      selectors.loginLink               = $('#login-link');
+      selectors.switchToSignup          = $('#or-signup-link');
+      selectors.switchToLogin           = $('#or-login-link');
+      selectors.membershipSignupButtons = $('.membership-signup-button');
 
       this.bindUIActions();
     },
     bindUIActions: function () {
       selectors.signupButton.click(function(e) {
-        var email = selectors.signupEmailField.val();
+        var email = selectors.signupEmailInput.val();
 
         e.preventDefault();
         this.signUp(email);
       }.bind(this));
 
       selectors.loginButton.click(function (e) {
-        var email = selectors.loginEmailField.val();
+        var email = selectors.signupEmailInput.val();
+        var password = selectors.loginPasswordInput.val();
+        var data = { "email": email, "password": password };
 
         e.preventDefault();
-        this.logIn(email);
+        this.logIn(data);
       }.bind(this));
 
       selectors.signupLink.click(function () {
@@ -70,9 +73,17 @@ var homeController = (function (){
       window.sessionStorage.setItem('signupEmail', email);
       window.location.assign('/sign_up.html');
     },
-    logIn: function (email) {
-      console.log('going')
-      window.location.assign('/profile.html');
+    logIn: function (loginData) {
+      selectors.loginForm.removeClass('bad-login');
+
+      $.post('/login', loginData, function (response) {
+        console.log(response);
+        if (response === 'Success!') {
+          window.location.assign('/profile.html');
+        } else {
+          selectors.loginForm.addClass('bad-login');
+        }
+      });
     },
     membershipSignUp: function(membershipType) {
       window.sessionStorage.setItem('membershipType', membershipType);

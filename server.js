@@ -5,6 +5,9 @@ var fs             = require('fs');
 var bodyParser     = require('body-parser');
 var swig           = require('swig');
 var EmailTemplates = require('swig-email-templates');
+var LocalStorage   = require('node-localstorage').LocalStorage;
+var localStorage   = new LocalStorage('./scratch');
+
 
 var app = express();
 
@@ -363,19 +366,28 @@ var sendActivityEmail = function (userData) {
     activityData: randomActivity,
   };
 
-  templates.render('activity_email.html', context, function(err, html, text) {
-    if (err) {
-      res.status('500');
-      return console.log(err);
-    }
+  global.account = JSON.stringify(context);
+  global.userData = userData;
+  // localStorage.setItem('account', JSON.stringify(context));
 
-    transporter.sendMail({
-      from   : 'discover@peek.com',
-      to     : userData.email,
-      subject: 'Your peekDiscover activity is coming up!',
-      html   : html
+  var sendActivityEmail = function () {
+    templates.render('activity_email.html', context, function(err, html, text) {
+      if (err) {
+        res.status('500');
+        return console.log(err);
+      }
+
+      transporter.sendMail({
+        from   : 'discover@peek.com',
+        to     : userData.email,
+        subject: 'Your peekDiscover activity is coming up!',
+        html   : html
+      });
     });
-  });
+  };
+
+  setTimeout(sendActivityEmail, 60000);
+
 };
 
 app.use('/', express.static(__dirname + '/'));
@@ -403,6 +415,7 @@ app.post('/signup', function (req, res) {
     lastName  : titleize(req.body.lastName),
     location  : req.body.location,
     email     : req.body.email,
+    raw       : req.body,
   };
 
   templates.render('signup_email.html', context, function(err, html, text) {
@@ -423,9 +436,26 @@ app.post('/signup', function (req, res) {
     });
   });
 
-  setTimeout(sendActivityEmail.bind(null, context), 60000);
+  sendActivityEmail(context);
 
   res.sendFile('confirmation.html', {root: __dirname });
+});
+
+app.get('/profile', function (req, res) {
+  // res.send(localStorage.getItem('account'));
+  res.send(global.account);
+});
+
+app.post('/login', function (req, res) {
+  var userInfo = global.userData;
+
+  if (!req.body.email || !req.body.password) {
+    res.send('No user.');
+  } else if (req.body.password === userInfo.raw.password && req.body.email === userInfo.email) {
+    res.send('Success!');
+  } else {
+    res.send('No user.');
+  }
 });
 
 app.listen(app.get('port'));
